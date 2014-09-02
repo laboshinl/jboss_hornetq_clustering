@@ -132,24 +132,24 @@ Then in the Master configure the domain.xml (profile - full-ha part!) for the th
                 </hornetq-server>
             </subsystem>
 
-<server-groups>
-        <server-group name="main-server-group" profile="full">
-            <jvm name="default">
-                <heap size="64m" max-size="512m"/>
-            </jvm>
-            <socket-binding-group ref="full-sockets"/>
-        </server-group>
-        <server-group name="other-server-group" profile="full-ha">
-            <jvm name="default">
-                <heap size="64m" max-size="512m"/>
-            </jvm>
-            <socket-binding-group ref="full-ha-sockets"/> <!-- This seems to be a bug and to get to this took me days -->
-            <deployments>
-                <deployment name="MroControllerEar.ear" runtime-name="MroControllerEar.ear"/>
-                <deployment name="MroExecutorEar.ear" runtime-name="MroExecutorEar.ear"/>
-            </deployments>
-        </server-group>
-    </server-groups>
+               <server-groups>
+                       <server-group name="main-server-group" profile="full">
+                           <jvm name="default">
+                               <heap size="64m" max-size="512m"/>
+                           </jvm>
+                           <socket-binding-group ref="full-sockets"/>
+                       </server-group>
+                       <server-group name="other-server-group" profile="full-ha">
+                           <jvm name="default">
+                               <heap size="64m" max-size="512m"/>
+                           </jvm>
+                           <socket-binding-group ref="full-ha-sockets"/> <!-- This seems to be a bug and to get to this took me days -->
+                           <deployments>
+                               <deployment name="MroControllerEar.ear" runtime-name="MroControllerEar.ear"/>
+                               <deployment name="MroExecutorEar.ear" runtime-name="MroExecutorEar.ear"/>
+                           </deployments>
+                       </server-group>
+                   </server-groups>
 
 Ports opened in the firewall
 
