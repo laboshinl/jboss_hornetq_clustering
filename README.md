@@ -7,7 +7,7 @@ https://docs.jboss.org/author/display/AS71/AS7+Cluster+Howto
 
 Then in the Master configure the domain.xml (profile - full-ha part!) for the things marked yellow
 
- <subsystem xmlns="urn:jboss:domain:messaging:1.1">
+               <subsystem xmlns="urn:jboss:domain:messaging:1.1">
                 <hornetq-server>
                     <clustered>true</clustered>
                     <persistence-enabled>true</persistence-enabled>
@@ -153,18 +153,18 @@ Then in the Master configure the domain.xml (profile - full-ha part!) for the th
 
 Ports opened in the firewall
 
-tcp 8080   0.0.0.0/0
-tcp 5695   0.0.0.0/0
-udp 9876   0.0.0.0/0
-tcp 5445    0.0.0.0/0 // For hornetq to connet to each othe in cluste mode
-tcp 4447   0.0.0.0/0
-tcp 9999   0.0.0.0/0
-tcp 9876   0.0.0.0/0
-tcp 9990   0.0.0.0/0//Admin console
-tcp 8330   0.0.0.0/0 // There is a port offset : to access rest
-tcp 22     0.0.0.0/0 //ssh
+     tcp 8080   0.0.0.0/0
+     tcp 5695   0.0.0.0/0
+     udp 9876   0.0.0.0/0
+     tcp 5445    0.0.0.0/0 // For hornetq to connet to each othe in cluste mode
+     tcp 4447   0.0.0.0/0
+     tcp 9999   0.0.0.0/0
+     tcp 9876   0.0.0.0/0
+     tcp 9990   0.0.0.0/0//Admin console
+     tcp 8330   0.0.0.0/0 // There is a port offset : to access rest
+     tcp 22     0.0.0.0/0 //ssh
 
-Code is in GitHub
+
 Invocation
 
 http://<MasterIP>:8330/MroControllerREST/rest/sessionbean/startmro?scopename=werwerwe
