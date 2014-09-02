@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.nokia.ison.cp.Mro</groupId>
+    <artifactId>mro</artifactId>
+    <version>DYNAMIC-SNAPSHOT</version>
+  </parent>
+  
+  <groupId>com.nokia.oss</groupId>
+  <artifactId>MroCore</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>MroCore</name>
+  
+  <dependencies>
+    <!-- Models the graph relationship -->
+		<dependency>
+			<groupId>jgrapht</groupId>
+			<artifactId>jgrapht</artifactId>
+			<version>0.7.3</version>
+		</dependency>
+		  <!-- For JSON -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+		 <!-- For JMS (tocheck) -->
+		 <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${javax.version}</version>
+	        <scope>provided</scope>
+        </dependency>
+		 <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+		</dependency>
+  </dependencies>
+</project>

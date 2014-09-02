@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+  <name>MroExecutorEar</name>
+  <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <projects>
+    <project>MroExecutor</project>
+    <project>MroCore</project>
+  </projects>
+  <buildSpec/>
+  <natures/>
+</projectDescription>

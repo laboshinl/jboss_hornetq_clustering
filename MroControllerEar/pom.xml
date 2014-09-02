@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>com.nokia.ison.cp.Mro</groupId>
+		<artifactId>mro</artifactId>
+		<version>DYNAMIC-SNAPSHOT</version>
+	</parent>
+    
+	<groupId>com.nokia.ison</groupId>
+    <artifactId>MroControllerEar</artifactId>
+    <version>1.0.0</version>
+ 
+    <packaging>ear</packaging>
+    <name>ison_mro_controller</name>
+ 
+    <build>
+        <finalName>MroControllerEar</finalName>
+        <plugins>
+           
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.4.1</version>
+                <configuration>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <modules>
+                        <ejbModule>
+                            <groupId>com.nokia.oss</groupId>
+							<artifactId>MroController</artifactId>
+                            <bundleFileName>MroController.jar</bundleFileName>
+                        </ejbModule>
+						<webModule>
+							<groupId>com.nokia.oss</groupId>
+							<artifactId>MroControllerREST</artifactId>
+						   <bundleFileName>MroControllerREST.war</bundleFileName>
+						</webModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+ 
+    <dependencies>
+        <dependency>
+           <groupId>com.nokia.oss</groupId>
+			<artifactId>MroController</artifactId>
+			 <version>${ejb-version}</version>
+            <type>ejb</type>
+        </dependency>
+		 <dependency>
+           	<groupId>com.nokia.oss</groupId>
+			<artifactId>MroControllerREST</artifactId>
+			 <version>${ejb-version}</version>
+            <type>war</type>
+        </dependency>
+	</dependencies>
+ 
+    <properties>
+        <ejb-version>1.0-SNAPSHOT</ejb-version>
+    </properties>
+ 
+</project>
