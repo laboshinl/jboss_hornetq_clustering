@@ -21,16 +21,42 @@ public interface MessageWrapperItf extends Serializable{
 	public void setPayload(String payload);
 	
 	/**
-	 * Set the id of hte message Sender
+	 * Set the id of the message Sender
 	 * @param id
 	 */
 	public void setMessageSenderId(String id);
+	
+	/**
+	 * Get the Message Target Id
+	 * @return
+	 */
+	public String getMessageTargetId();
+	
+	/**
+	 * Set the id of the message Target Id
+	 * @param id
+	 */
+	public void setMessageTargetId(String id);
 	
 	/**
 	 * Get the Message Sender Id
 	 * @return
 	 */
 	public String getMessageSenderId();
+	
+	
+	/**
+	 * Set the id of the Task in case it is isa Task message
+	 * @param id
+	 */
+	public void setTaskId(Long id);
+	
+	/**
+	 * Get the Message Sender Id
+	 * @return
+	 */
+	public Long getTaskId();
+	
 	
 	/**
 	 * Sets the message type

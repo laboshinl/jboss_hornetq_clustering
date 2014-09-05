@@ -1,5 +1,7 @@
 package com.nokia.oss;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -12,9 +14,10 @@ import com.nokia.ison.FeedbackType;
 import com.nokia.ison.JsonSourceDestDN;
 import com.nokia.ison.MessageType;
 import com.nokia.ison.MessageWrapper;
-import com.nokia.ison.dispatch.SendtoExecutor;
 import com.nokia.ison.dispatch.SendMessageItf;
+import com.nokia.ison.dispatch.SendtoExecutor;
 import com.nokia.ison.external.StubScopeService;
+
 
 @Local
 @Stateless
@@ -30,10 +33,6 @@ public class MroController implements MroControllerItf {
 	public FeedbackType startMroforScope(String sourceScopeName,
 			String targetScopeName) {
 
-		// Get the DN's for the Target Scope
-		List<String> targetdnlist = StubScopeService
-				.getTargetDNsforScopeName(targetScopeName);
-		// List<String> filteredList =filterDNs(sourcednlist,targetdnlist);
 		splitDNs(sourceScopeName, targetScopeName);
 		return FeedbackType.SUCCEESS;
 	}
@@ -93,7 +92,13 @@ public class MroController implements MroControllerItf {
 			wrapper.targentLnrelList = targetDnlist;
 
 			messageWrapper.setPayload(new Gson().toJson(wrapper));
-			messageWrapper.setMessageSenderId("Controller");
+			try {
+				messageWrapper.setMessageSenderId(InetAddress.getLocalHost().toString());
+				System.out.println("MROController -TargetID set as " +InetAddress.getLocalHost().toString());
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			messageWrapper.setMessageType(MessageType.COMMAND);
 			messageWrapper.setCommandType(CommandType.START_NR);
 			sendmsg.sendMessage(messageWrapper);
@@ -107,6 +112,12 @@ public class MroController implements MroControllerItf {
 
 		}
 
+	}
+
+	@Override
+	public void aggregateNRSortResults(String nrResults) {
+		System.out.println("MROController In aggregateNRSortResults ");
+		
 	}
 
 }

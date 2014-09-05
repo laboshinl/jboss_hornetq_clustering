@@ -47,7 +47,15 @@ public class MroExecutorMDB implements MessageListener{
                 		" SenderId= "+  objmsg.getMessageSenderId()+
                 		" Number of DN's Present= " + output.sourceDNList.size() );
                 
-                (new NRSorter()).handleDnsFromScope(output.sourceDNList);
+                System.out.println(" MroExecutorMDB Sleeping for 5 seconds");
+                try {
+					Thread.sleep(5000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+                System.out.println("MroExecutorMDB Out of Sleep");
+                
+                (new NRSorter()).handleDnsFromScope(output.sourceDNList,objmsg.getMessageSenderId());
                    		
             } else {
                 LOGGER.warning("Message of wrong type: " + rcvMessage.getClass().getName());

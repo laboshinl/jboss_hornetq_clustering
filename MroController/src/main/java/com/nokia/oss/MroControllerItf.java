@@ -17,5 +17,6 @@ public interface MroControllerItf {
 	 * @return
 	 */
 	public FeedbackType startMroforScope(String sourceScopeName,String targetScopeName);
+	public void aggregateNRSortResults(String nrResults);
 
 }
